@@ -1,0 +1,181 @@
+/* 1. Animates the logo to increase in width and fade in over 5 seconds */
+#logo {
+    animation-name: animation_zoom;
+    animation-duration: 5s; 
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes animation_zoom {
+    from {
+      width: 25px;
+      opacity: 0;
+    }
+    to {
+      width: 475px;
+      opacity: 1;
+    }
+}
+
+/* 2. Sets the default body font and background */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* 3. Styles the header to center its content vertically */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 4. Organizes navigation links into a vertical column */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. Sets the color of unvisited and visited links to blue */
+a:link, a:visited {
+    color: blue;
+}
+
+/* 6. Styles the header inside card elements */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* 7.8. Configures the card layout and appearance */
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Sets the layout for the pricing section, centering items both horizontally and vertically */
+.pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 9. Styles images in the gallery */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* 10. Styles the gallery itself for a wrapped, centered layout */
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Media query for screens wider than 900px */
+@media (min-width: 900px) {
+
+    /* 11. Adjusts header layout for wider screens */
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Changes nav_links to a horizontal layout */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* 12. Adjusts pricing layout for wider screens */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Sets a specific width for cards on wider screens */
+    .card {
+        width: 275px;
+    }
+
+    /* 13. Makes the first header element sticky at the top */
+    body > header:first-of-type {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* 14. Disables the logo animation if the user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation-name: none;
+    }
+}
+
+/* Print media query styles */
+@media print {
+
+    /* 15. Changes the body font for printing */
+    body {
+        font-family: Arial, Helvetica;
+    }
+
+    /* 16. Removes background images for printing */
+    body {
+        background-image: none;
+    }
+
+    /* 17. Adjusts navigation links layout for printing */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* 18. Adjusts the layout of pricing for printing */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    /* 19. Sets card styling for printing */
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* 20. Hides gallery elements for printing */
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* 21. Adds a thumbs up emoji after the second list item in each card */
+    .card li:nth-child(2)::after {
+        content: '👍';
+    }
+
+    /* Styles the footer for printing */
+    footer {
+        display: flex;
+        flex-direction: row;
+    }
+}
